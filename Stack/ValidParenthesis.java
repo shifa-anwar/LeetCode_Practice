@@ -30,12 +30,16 @@ class Solution {
         for(int i=0;i<s.length();i++)
         {  
          char c = s.charAt(i);   
-         if(c=='('||c=='['||c=='{')   
+         if(c=='('||c=='['||c=='{')   //if there are opening bracket then we will push it into stack
           stack.push(c);
-           if(stack.isEmpty())
+         /*what if there was not any opening bracket but a closing bracket comes first then the stack will be empty and it will return false ex-)[]*/
+           if(stack.isEmpty())  
             return false;
             char ch;
-            switch(c)
+         /* if any closing bracket comes then we will check the top of stack if it is not the opening part of closing bracket 
+         then we will return false
+         */
+            switch(c) 
             {
             case ']':
             ch = stack.pop();
@@ -53,7 +57,11 @@ class Solution {
             return false;
              break;       
               }
-           }     
+           } 
+     /*
+     if it is a valid expression then stack will become empty because each opening will have closing bracket but
+     if it is invalid then it will have some bracket left in stack
+     */
         return stack.isEmpty();
     }
 }
