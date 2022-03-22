@@ -21,6 +21,15 @@ After removing outer parentheses of each part, this is "()()" + "()" = "()()()".
 */
 
 1.using stack
+/*
+|          |
+|          |
+|          | 
+|    (     |
+|____(_____|
+ after these two opening braclet when we will recieve closing bracket )
+ then pop from stack
+ */
 class Solution {
     public String removeOuterParentheses(String s) {
         Stack<Integer> stack = new Stack<Integer>();
@@ -44,9 +53,25 @@ class Solution {
 }
 
 2.without stack
+/*
+ex- (()())(())
+bracket with x will not be added
+increase the count when recieve ( bracket and decrease it when recieve ) bracket
+count 
+1     (  x
+2     (
+1     )
+2     (
+1     )
+0     )  x
+1     (  x
+2     (
+1     )
+0     )  x
+*/
 class Solution {
     public String removeOuterParentheses(String s) {
-        int open=0,f=-1;
+        int open=0;
         String res="";
         for(int i=0;i<s.length();i++)
         {
