@@ -4,7 +4,7 @@ class Solution {
         int nge[]= new int[nums.length];
         Stack<Integer> stack = new Stack<>();
         stack.push(nums.length-1);
-        nge[nums.length-1]=nums.length;
+        nge[nums.length-1]=nums.length;//first find next greater element index of each element
         for(int i=nums.length-2;i>=0;i--)
         {
          while(!stack.isEmpty()&&nums[i]>=nums[stack.peek()])
@@ -24,7 +24,7 @@ class Solution {
             {
               j=i;  
             }
-            while(nge[j]<i+k)
+            while(nge[j]<i+k)//if next greater is outside the window then the current element is maximum else jump to next greater element
             {
                 j=nge[j];
             }
