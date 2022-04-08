@@ -42,7 +42,7 @@ class Solution {
         {
           if(queue.peek()==stack.peek())
           {
-             c=0; 
+             c=0; //everytime when the student take sandwich then we will make count as zero because it is not sure that earlier who has not taken sandwich will not eat it in future
              queue.remove();
               stack.pop();
               
@@ -50,7 +50,7 @@ class Solution {
             else
             {
                queue.add(queue.remove()); 
-                c++;
+                c++;//if we get continous refusalthis means now the left students are there in queue all others have eaten the sandwich
             }
         }
         return queue.size();
