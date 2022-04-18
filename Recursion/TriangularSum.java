@@ -1,4 +1,4 @@
-//Find triangular sum
+/*Find triangular sum
 You are given a 0-indexed integer array nums, where nums[i] is a digit between 0 and 9 (inclusive).
 The triangular sum of nums is the value of the only element present in nums after the following process terminates:
 Let nums comprise of n elements. If n == 1, end the process. Otherwise, create a new 0-indexed integer array newNums of length n - 1.
@@ -18,6 +18,7 @@ Input: nums = [5]
 Output: 5
 Explanation:
 Since there is only one element in nums, the triangular sum is the value of that element itself.
+*/
 class Solution {
     public int triangularSum(int[] nums) {
       if(nums.length==1)//when only one element is left
