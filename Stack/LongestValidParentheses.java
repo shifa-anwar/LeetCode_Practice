@@ -21,6 +21,14 @@ Constraints:
 
 0 <= s.length <= 3 * 104
 s[i] is '(', or ')'.
+
+Approach:-
+Instead of finding every possible string and checking its validity, we can make use of a stack while scanning the given string to:
+Check if the string scanned so far is valid.
+Find the length of the longest valid string.
+In order to do so, we start by pushing -1−1 onto the stack. For every \text{‘(’}‘(’ encountered, we push its index onto the stack.
+For every \text{‘)’}‘)’ encountered, we pop the topmost element. Then, the length of the currently encountered valid string of parentheses will be the difference between the current element's index and the top element of the stack.
+If, while popping the element, the stack becomes empty, we will push the current element's index onto the stack. In this way, we can continue to calculate the length of the valid substrings and return the length of the longest valid string at the end.
 */
 class Solution {
     public int longestValidParentheses(String s) {
