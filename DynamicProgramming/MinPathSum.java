@@ -23,11 +23,11 @@ class Solution {
         int c = grid[0].length;
         int arr[][]= new int[r][c];
         arr[0][0]=grid[0][0];
-       for(int i=0,j=1;j<c;j++)
+       for(int i=0,j=1;j<c;j++) //storing first row element as they dont have any min path on left or upside
        {
         arr[i][j]=arr[i][j-1]+grid[i][j];   
        }
-       for(int i=1,j=0;i<r;i++)
+       for(int i=1,j=0;i<r;i++)//storing first col element as they dont have any min path on left or upside
        {
         arr[i][j]=arr[i-1][j]+grid[i][j];   
        }
@@ -35,7 +35,7 @@ class Solution {
        {
         for(int j=1;j<c;j++)  
         {
-        arr[i][j]= Math.min(arr[i][j-1],arr[i-1][j])+grid[i][j];    
+        arr[i][j]= Math.min(arr[i][j-1],arr[i-1][j])+grid[i][j];//take the min of upward path and left path    
         }
        }   
         return arr[r-1][c-1];
