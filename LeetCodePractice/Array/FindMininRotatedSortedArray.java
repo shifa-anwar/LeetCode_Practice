@@ -54,6 +54,11 @@ class Solution {
         while(l<=h)
         {
          int mid=l+(h-l)/2;
+         /*
+         we might be thinking that these two condition may cause array out of bounds for some condition but it will not give us exception
+         because these condition will be checked only for inflection point so we will not reach the start 
+         and in case if we have only 2 element like [3,1] in this case our first one will get satisfied so we put that condition first
+         */
          if(nums[mid]>nums[mid+1])
          {
            return nums[mid+1];  
