@@ -27,6 +27,31 @@ Constraints:
 
 1 <= m, n <= 100
 */
+1.Recursive soln
+class Solution {
+    int count=0;
+    public int uniquePaths(int m, int n) {
+        countWays(0,0,m,n);
+        return count;
+    }
+    public void countWays(int row,int col,int m,int n)
+    {
+     if(row==m||col==n)
+     {
+       return;  
+     }
+      if(row==m-1&&col==n-1)
+      {
+       count++;   
+      }
+        countWays(row+1,col,m,n);
+        countWays(row,col+1,m,n);
+    }
+}
+Time Complexity:O(2^n)
+Space Complexity:O(n) 
+
+2.Tabulation Method 
 class Solution {
     public int uniquePaths(int m, int n) {
         int arr[][]=new int[m+1][n+1];
