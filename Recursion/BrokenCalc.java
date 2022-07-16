@@ -56,3 +56,25 @@ class Solution {
         return count;
 }
 }
+
+2.iterative
+class Solution {
+    public int brokenCalc(int start, int target) { 
+      int count=0;
+      while(start<target)
+      {
+       count++;
+       if((target&1)==1)
+       {
+        target=target+1;   
+       }
+       else
+       {
+         target=target/2;  
+       }
+      }
+        return start-target+count;
+}
+}
+time:O(log target)
+space:O(1) 
