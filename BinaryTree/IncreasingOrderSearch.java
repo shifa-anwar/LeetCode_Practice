@@ -38,6 +38,39 @@ class Solution {
         helper(node.right);
     }
 }
+/*
 Time Complexity: O(N), where N is the number of nodes in the given tree.
 Space Complexity: O(H) in additional space complexity, where H is the height
 of the given tree, and the size of the implicit call stack in our in-order traversal.
+ */
+ 2.inorder traversal
+ /*
+ first we'll store the value by doing inorder traversal then we'll create a sentinel node and start storing the value from 
+ the right of reference of sentinel node.
+ */
+ class Solution {
+    
+    public TreeNode increasingBST(TreeNode root) {
+    ArrayList<Integer> list = new ArrayList<>();
+    inorder(root,list);
+    TreeNode res = new TreeNode(0);
+     TreeNode curr=res;   
+    for(int i:list)
+    {
+     curr.right=new TreeNode(i);
+     curr=curr.right;   
+    }
+     return res.right;   
+    }
+    public void inorder(TreeNode root,ArrayList<Integer> list)
+    {
+       if(root==null)return;
+       inorder(root.left,list);
+       list.add(root.val);
+       inorder(root.right,list); 
+    }
+}
+ /*
+ Time Complexity: O(N), where N is the number of nodes in the given tree.
+Space Complexity: O(N) 
+ */
